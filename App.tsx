@@ -1,23 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import ChatStackNavigator from './navigations/Navigator';
+import {
+  useFonts,
+  Montserrat_700Bold,
+  Montserrat_600SemiBold,
+  Montserrat_800ExtraBold
+} from '@expo-google-fonts/montserrat';
+import AppLoading from 'expo-app-loading';
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+const App = () => {
+  let [fontsLoaded] = useFonts({
+    Montserrat_700Bold,
+    Montserrat_600SemiBold,
+    Montserrat_800ExtraBold
+  });
 
-export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+  if(!fontsLoaded) return <AppLoading />
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
-    );
-  }
+  return(
+    <NavigationContainer>
+      <ChatStackNavigator />
+    </NavigationContainer>
+  )
 }
+
+
+export default App;
