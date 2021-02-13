@@ -26,22 +26,22 @@ const BottomTabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarLabel: "",
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="ios-compass" color={color} size={30} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Chat"
         component={Chat}
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ color, size }) => (
             <Icon2 name="chat" color={color} size={30} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: "",
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="ios-compass" color={color} size={30} />
           ),
         }}
       />

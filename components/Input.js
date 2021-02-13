@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Input = (inputMessage, onSendPress, setMessage) => {
+  console.log("onSendPress: ",onSendPress)
   return(
     <View
       style={styles.container}
@@ -15,9 +16,10 @@ const Input = (inputMessage, onSendPress, setMessage) => {
         value={inputMessage}
         onChangeText={setMessage}
         style={styles.input}
+        placeholderTextColor="#fff"
       />
       <TouchableOpacity
-        onPress={onSendPress}
+        onPress={() => onSendPress}
       >
         <Ionicons name='ios-send' color="#fff" size={20} />
       </TouchableOpacity>
